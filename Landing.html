@@ -1,0 +1,1926 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rakau Lodge · Tu escapada al sur, los 365 días del año</title>
+<meta name="description" content="Hotel boutique en Pucón, abierto todo el año. Cabañas, tinajas privadas y bosque nativo a orillas del río Trancura." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --surface:#F8F9F5;
+    --surface-2:#F1F2EB;
+    --ink:#15201A;
+    --ink-soft:#3E4A40;
+    --muted:#7A857B;
+    --line:#DDE0D6;
+    --line-soft:#E8EBE0;
+    --forest:#2D5A27;
+    --forest-deep:#1F3F1B;
+    --forest-ink:#0E1F0C;
+    --gold:#D4A373;
+    --gold-deep:#B8865A;
+    --cta:#EA580C;
+    --cta-deep:#C84A07;
+    --radius:8px;
+    --radius-lg:14px;
+    --shadow-1: 0 1px 2px rgba(20,30,20,.04), 0 2px 6px rgba(20,30,20,.04);
+    --shadow-2: 0 2px 6px rgba(20,30,20,.05), 0 10px 24px rgba(20,30,20,.06);
+    --container: 1240px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Inter', system-ui, -apple-system, sans-serif;
+    background:var(--surface);
+    color:var(--ink);
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
+  .serif{font-family:'Fraunces', Georgia, serif; font-weight:400; letter-spacing:-0.01em}
+  .container{max-width:var(--container); margin:0 auto; padding:0 24px}
+  @media (min-width:900px){ .container{padding:0 40px} }
+
+  /* ============ NAV ============ */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(248,249,245,.85);
+    backdrop-filter:saturate(140%) blur(14px);
+    -webkit-backdrop-filter:saturate(140%) blur(14px);
+    border-bottom:1px solid transparent;
+    transition:border-color .25s ease, background .25s ease;
+  }
+  .nav.scrolled{ border-bottom-color:var(--line); background:rgba(248,249,245,.94); }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    height:72px;
+  }
+  .brand{display:flex; align-items:center; gap:12px}
+  .brand img{height:44px; width:auto}
+  .nav-links{display:none; gap:32px; align-items:center}
+  .nav-links a{
+    font-size:14px; font-weight:500; color:var(--ink-soft);
+    transition:color .2s ease;
+  }
+  .nav-links a:hover{color:var(--forest)}
+  .nav-cta{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--forest); color:#fff;
+    padding:11px 18px; border-radius:var(--radius);
+    font-weight:600; font-size:14px;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .nav-cta:hover{ background:var(--forest-deep) }
+  @media (min-width:900px){ .nav-links{display:flex} }
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative; overflow:hidden;
+    background:#0a140a;
+    color:#fff;
+    min-height: 720px;
+    display:flex; align-items:flex-end;
+  }
+  .hero-bg{
+    position:absolute; inset:0; overflow:hidden;
+  }
+  .hero-bg .hero-slide{
+    position:absolute; inset:0;
+    background-size:cover; background-position:center;
+    opacity:0;
+    transform: scale(1.05);
+    transition: opacity 1400ms ease-in-out, transform 8s ease-out;
+    will-change: opacity, transform;
+  }
+  .hero-bg .hero-slide.active{
+    opacity:1;
+    transform: scale(1);
+  }
+  .hero-bg::after{
+    content:""; position:absolute; inset:0; z-index:2;
+    background:
+      linear-gradient(180deg, rgba(10,20,10,.55) 0%, rgba(10,20,10,.20) 35%, rgba(10,20,10,.85) 100%),
+      linear-gradient(90deg, rgba(10,20,10,.55) 0%, rgba(10,20,10,0) 60%);
+    pointer-events:none;
+  }
+  .hero-dots{
+    position:absolute; bottom:32px; left:0; right:0;
+    z-index:3;
+    display:flex; justify-content:center; gap:8px;
+  }
+  .hero-dots button{
+    width:32px; height:3px; border-radius:2px;
+    background:rgba(255,255,255,.28);
+    transition: background .3s ease, width .3s ease;
+    padding:0;
+  }
+  .hero-dots button.active{ background:var(--gold); width:48px }
+  @media (max-width:700px){ .hero-dots{ bottom:18px } .hero-dots button{ width:22px } .hero-dots button.active{ width:32px } }
+  .hero-inner{
+    position:relative; z-index:2;
+    width:100%;
+    padding: 120px 0 56px;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns: 1fr; gap:48px;
+    align-items:end;
+  }
+  @media (min-width:1000px){
+    .hero-grid{ grid-template-columns: 1.15fr .85fr; gap:64px; align-items:end; }
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    font-size:12px; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--gold);
+  }
+  .eyebrow::before{
+    content:""; width:28px; height:1px; background:var(--gold);
+  }
+  .hero h1{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:300;
+    font-size: clamp(40px, 6.4vw, 84px);
+    line-height:1.02;
+    letter-spacing:-0.025em;
+    margin: 20px 0 22px;
+    text-wrap:balance;
+  }
+  .hero h1 em{
+    font-style:italic; font-weight:400;
+    color:var(--gold);
+  }
+  .hero p.lead{
+    font-size:clamp(16px, 1.6vw, 19px);
+    line-height:1.55;
+    max-width: 520px;
+    color: rgba(255,255,255,.85);
+    margin:0;
+  }
+  .hero-meta{
+    display:flex; flex-wrap:wrap; gap:24px 36px;
+    margin-top:36px;
+    padding-top:28px;
+    border-top:1px solid rgba(255,255,255,.16);
+    max-width: 560px;
+  }
+  .hero-meta div{ font-size:13px; color:rgba(255,255,255,.7) }
+  .hero-meta strong{ display:block; color:#fff; font-weight:500; font-size:15px; margin-bottom:2px }
+
+  /* ============ BOOKING WIDGET (NoBeds mock) ============ */
+  .booking{
+    background:#fff;
+    border-radius: var(--radius-lg);
+    padding: 22px;
+    box-shadow: 0 24px 60px -20px rgba(0,0,0,.45), 0 8px 20px -8px rgba(0,0,0,.25);
+    color:var(--ink);
+  }
+  .booking-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-bottom:16px; margin-bottom:18px;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .booking-head h3{
+    margin:0; font-family:'Fraunces',serif; font-weight:500; font-size:20px; letter-spacing:-.01em;
+  }
+  .booking-head .pill{
+    display:inline-flex; align-items:center; gap:6px;
+    background:#E9F1E5; color:var(--forest);
+    font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
+    padding:5px 10px; border-radius:999px;
+  }
+  .booking-head .pill::before{
+    content:""; width:6px; height:6px; border-radius:50%; background:var(--forest);
+    box-shadow:0 0 0 3px rgba(45,90,39,.18);
+  }
+  .field{
+    display:flex; flex-direction:column; gap:6px;
+    padding:12px 14px;
+    border:1px solid var(--line);
+    border-radius: var(--radius);
+    transition: border-color .2s ease, box-shadow .2s ease;
+    background:#fff;
+  }
+  .field:focus-within{
+    border-color:var(--forest);
+    box-shadow:0 0 0 3px rgba(45,90,39,.10);
+  }
+  .field label{
+    font-size:10.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--muted);
+  }
+  .field input, .field select{
+    border:none; background:transparent; outline:none;
+    font-family:inherit; font-size:15px; font-weight:500; color:var(--ink);
+    padding:0; width:100%;
+  }
+  .booking-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:10px;
+  }
+  .booking-grid .full{ grid-column: 1 / -1; }
+  .cta-primary{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    width:100%;
+    background:#1F3F1B; color:#fff;
+    padding:16px 18px; border-radius:var(--radius);
+    font-weight:600; font-size:15px; letter-spacing:.01em;
+    margin-top:14px;
+    transition: background .2s ease, transform .15s ease;
+    box-shadow: 0 8px 20px -8px rgba(31,63,27,.5);
+  }
+  .cta-primary:hover{ background:#0E1F0C }
+  .cta-primary:active{ transform: translateY(1px) }
+  .booking-foot{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px;
+    margin-top:14px; padding-top:14px;
+    border-top:1px dashed var(--line-soft);
+    font-size:12px; color:var(--muted);
+  }
+  .booking-foot strong{ color:var(--ink); font-weight:600 }
+
+  /* ============ SECTION SHELL ============ */
+  section{ padding: 100px 0 }
+  @media (max-width:700px){ section{ padding: 72px 0 } }
+  .section-eyebrow{
+    font-size:12px; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--forest);
+    margin-bottom:18px;
+  }
+  .section-eyebrow::before{
+    content:"·"; margin-right:10px; color:var(--gold);
+  }
+  .section-title{
+    font-family:'Fraunces', serif; font-weight:300;
+    font-size: clamp(32px, 4.4vw, 56px);
+    line-height:1.05; letter-spacing:-.025em;
+    margin:0 0 22px;
+    text-wrap:balance;
+  }
+  .section-title em{ font-style:italic; color:var(--forest); font-weight:400; }
+  .section-lead{
+    font-size:17px; line-height:1.6; color:var(--ink-soft);
+    max-width: 620px;
+  }
+
+  /* ============ MANIFIESTO ============ */
+  .manifesto{
+    background:var(--forest-deep);
+    color:#F0EFE7;
+    position:relative; overflow:hidden;
+  }
+  .manifesto .container{ position:relative; z-index:2 }
+  .manifesto-grid{
+    display:grid; grid-template-columns:1fr; gap:48px;
+    align-items:center;
+  }
+  @media (min-width:1000px){
+    .manifesto-grid{ grid-template-columns: 1.05fr .95fr; gap:88px; }
+  }
+  .manifesto .section-eyebrow{ color:var(--gold) }
+  .manifesto .section-eyebrow::before{ color:var(--gold) }
+  .manifesto h2{
+    font-family:'Fraunces',serif; font-weight:300;
+    font-size: clamp(36px, 5vw, 68px);
+    line-height:1.04; letter-spacing:-.025em;
+    margin:0 0 28px;
+    color:#fff; text-wrap:balance;
+  }
+  .manifesto h2 em{
+    font-style:italic; color:var(--gold); font-weight:400;
+  }
+  .manifesto p{
+    font-size:17px; line-height:1.65;
+    color:rgba(240,239,231,.78);
+    max-width:540px;
+  }
+  .manifesto-stats{
+    display:grid; grid-template-columns:repeat(3,1fr);
+    margin-top:44px; padding-top:36px;
+    border-top:1px solid rgba(255,255,255,.14);
+    gap:24px;
+  }
+  .stat strong{
+    display:block; font-family:'Fraunces',serif;
+    font-size: clamp(32px,3.6vw,44px); font-weight:300;
+    color:var(--gold); letter-spacing:-.02em;
+    margin-bottom:4px;
+  }
+  .stat span{ font-size:13px; color:rgba(255,255,255,.65); letter-spacing:.04em }
+
+  .manifesto-visual{
+    position:relative;
+    aspect-ratio: 4/5;
+    border-radius: var(--radius-lg);
+    overflow:hidden;
+    background:#000;
+    touch-action: pan-y;
+    user-select:none;
+  }
+  .manifesto-visual .slides{ position:absolute; inset:0; overflow:hidden }
+  .manifesto-visual .slides img{
+    position:absolute; inset:0;
+    width:100%; height:100%; object-fit:cover;
+    transform: translateX(100%);
+    transition: transform 550ms cubic-bezier(.7,0,.2,1);
+    will-change: transform;
+  }
+  .manifesto-visual .slides img.active{ transform: translateX(0) }
+  .manifesto-visual .slides img.prev{ transform: translateX(-100%) }
+  .manifesto-visual .tag{
+    position:absolute; bottom:20px; left:20px;
+    display:inline-flex; align-items:center; gap:10px;
+    padding:10px 14px;
+    background:rgba(10,20,10,.55);
+    backdrop-filter: blur(8px);
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:999px;
+    font-size:12px; color:#fff; font-weight:500; letter-spacing:.05em;
+    z-index:3;
+  }
+  .manifesto-visual .tag::before{
+    content:""; width:8px; height:8px; border-radius:50%;
+    background:var(--gold);
+  }
+  .manifesto-visual .season-label{
+    transition: opacity .4s ease, transform .4s ease;
+    display:inline-block;
+  }
+  .manifesto-visual .season-dots{
+    position:absolute; bottom:24px; right:20px;
+    display:flex; gap:6px; z-index:3;
+  }
+  .manifesto-visual .season-dots button{
+    width:24px; height:3px; border-radius:2px;
+    background:rgba(255,255,255,.3);
+    transition: background .3s ease, width .3s ease;
+    padding:0;
+  }
+  .manifesto-visual .season-dots button.active{
+    background:var(--gold);
+    width:32px;
+  }
+  .carousel-arrows{
+    position:absolute; top:50%; left:0; right:0;
+    transform: translateY(-50%);
+    display:flex; justify-content:space-between;
+    padding: 0 16px;
+    pointer-events:none;
+    z-index:3;
+    opacity:0;
+    transition: opacity .3s ease;
+  }
+  .manifesto-visual:hover .carousel-arrows{ opacity:1 }
+  .carousel-arrows button{
+    pointer-events:auto;
+    width:44px; height:44px; border-radius:50%;
+    background:rgba(10,20,10,.5);
+    backdrop-filter: blur(8px);
+    border:1px solid rgba(255,255,255,.2);
+    color:#fff;
+    display:inline-flex; align-items:center; justify-content:center;
+    transition: background .2s ease, transform .2s ease;
+  }
+  .carousel-arrows button:hover{
+    background:rgba(212,163,115,.85);
+    transform: scale(1.06);
+  }
+  .carousel-arrows svg{ width:18px; height:18px }
+  @media (max-width: 700px){ .carousel-arrows{ opacity:1 } .carousel-arrows button{ width:38px; height:38px } }
+
+  /* ============ CABAÑAS ============ */
+  .cabins-head{
+    display:grid; grid-template-columns: 1fr; gap: 36px;
+    align-items:end;
+    margin-bottom:48px;
+  }
+  @media (min-width: 900px){
+    .cabins-head{ grid-template-columns: minmax(0,1fr) minmax(0,360px); gap: 64px; }
+  }
+  .cabins-head-text{
+    display:flex; flex-direction:column; gap:18px;
+    max-width:740px;
+  }
+  .cabins-head-illustration{
+    display:none;
+    justify-self:end;
+    align-self:end;
+    position:relative;
+  }
+  @media (min-width: 900px){ .cabins-head-illustration{ display:block } }
+  .cabins-head-illustration img{
+    width: 100%;
+    max-width: 360px;
+    height:auto;
+    display:block;
+    mix-blend-mode: multiply;
+    opacity: 1;
+  }
+  .cabins-grid{
+    display:grid; grid-template-columns:1fr; gap:24px;
+  }
+  @media (min-width:900px){
+    .cabins-grid{ grid-template-columns: 1.4fr 1fr; gap:28px; }
+  }
+  .cabin{
+    position:relative; overflow:hidden;
+    border-radius: var(--radius-lg);
+    background:#0a140a; color:#fff;
+    min-height: 540px;
+    display:flex; flex-direction:column; justify-content:flex-end;
+    isolation:isolate;
+  }
+  .cabin > img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    z-index:-2;
+    transition: transform .8s cubic-bezier(.2,.7,.2,1);
+  }
+  .cabin:hover > img{ transform: scale(1.04) }
+  .cabin::after{
+    content:""; position:absolute; inset:0; z-index:-1;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 20%, rgba(0,0,0,.55) 55%, rgba(0,0,0,.92) 100%);
+  }
+  .cabin-body{
+    padding: 32px;
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px }
+  .chip{
+    display:inline-flex; align-items:center; gap:6px;
+    background:rgba(255,255,255,.14);
+    backdrop-filter: blur(6px);
+    color:#fff;
+    font-size:11.5px; font-weight:600; letter-spacing:.05em;
+    padding:6px 11px; border-radius:999px;
+    border:1px solid rgba(255,255,255,.22);
+  }
+  .chip.gold{
+    background:rgba(212,163,115,.22);
+    border-color:rgba(212,163,115,.55);
+    color:#F5DDB8;
+  }
+  .chip.gold::before{
+    content:""; width:6px; height:6px; border-radius:50%; background:var(--gold);
+  }
+  .chip.green{
+    background:rgba(120,180,90,.18);
+    border-color:rgba(180,220,150,.45);
+    color:#D6ECC4;
+  }
+  .chip.green::before{
+    content:""; width:6px; height:6px; border-radius:50%; background:#9DC97B;
+  }
+  .cabin h3{
+    font-family:'Fraunces', serif;
+    font-weight:300;
+    font-size: clamp(28px, 3.2vw, 40px);
+    line-height:1.05; letter-spacing:-.02em;
+    margin:0;
+  }
+  .cabin h3 em{ font-style:italic; color:var(--gold); font-weight:400 }
+  .cabin p{
+    margin:0; max-width:480px;
+    color:rgba(255,255,255,.8);
+    font-size:15.5px; line-height:1.6;
+  }
+  .cabin-foot{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px; margin-top:14px; padding-top:18px;
+    border-top:1px solid rgba(255,255,255,.18);
+    flex-wrap:wrap;
+  }
+  .cabin-price small{ display:block; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-bottom:2px }
+  .cabin-price strong{ font-family:'Fraunces',serif; font-size:24px; font-weight:400; color:#fff }
+  .cabin-price strong span{ font-size:12px; color:rgba(255,255,255,.7); font-family:'Inter',sans-serif; margin-left:6px; font-weight:500 }
+  .cabin-cta{
+    display:inline-flex; align-items:center; gap:8px;
+    background:#fff; color:var(--forest-deep);
+    padding:11px 16px; border-radius:var(--radius);
+    font-weight:600; font-size:13.5px;
+    transition: background .2s ease, color .2s ease;
+  }
+  .cabin-cta:hover{ background:var(--gold); color:#fff }
+  .cabin.featured{ min-height: 620px }
+  .featured-badge{
+    position:absolute; top:24px; left:24px;
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--gold); color:#1F1305;
+    font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+    padding:7px 12px; border-radius:999px;
+  }
+
+  /* ============ AMENITIES ============ */
+  .amenities{
+    background:var(--surface-2);
+  }
+  .amenities-head{
+    display:grid; grid-template-columns:1fr; gap:24px;
+    align-items:end; margin-bottom:56px;
+  }
+  @media (min-width:900px){ .amenities-head{ grid-template-columns: 1.2fr .8fr; gap:80px; } }
+  .amenities-grid{
+    display:grid; grid-template-columns:1fr; gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow:hidden;
+  }
+  @media (min-width:700px){ .amenities-grid{ grid-template-columns:1fr 1fr } }
+  @media (min-width:1000px){ .amenities-grid{ grid-template-columns:repeat(3,1fr) } }
+  .amenity{
+    background:var(--surface);
+    display:flex; flex-direction:column;
+    min-height: 200px;
+    overflow:hidden;
+  }
+  .amenity-media{
+    position:relative;
+    aspect-ratio: 16 / 10;
+    overflow:hidden;
+    background:#0a140a;
+  }
+  .amenity-media img{
+    width:100%; height:100%; object-fit:cover;
+    display:block;
+    transition: transform .8s cubic-bezier(.2,.7,.2,1);
+  }
+  .amenity:hover .amenity-media img{ transform: scale(1.05) }
+  .amenity-body{
+    padding:28px 28px 32px;
+    display:flex; flex-direction:column; gap:10px;
+    flex:1;
+  }
+  .amenity .num{
+    font-family:'Fraunces',serif; font-size:13px; color:var(--gold-deep); font-weight:500;
+    letter-spacing:.05em; margin-bottom:4px;
+  }
+  .amenity h4{
+    font-family:'Fraunces',serif; font-weight:400;
+    font-size:22px; letter-spacing:-.01em;
+    margin:0;
+  }
+  .amenity p{
+    margin:0; color:var(--ink-soft);
+    font-size:14.5px; line-height:1.55;
+  }
+
+  /* ============ EXPERIENCIA / GALERÍA ============ */
+  .experience{
+    background:var(--forest-ink);
+    color:#fff;
+  }
+  .experience .section-eyebrow{ color:var(--gold) }
+  .experience .section-title{ color:#fff }
+  .experience .section-title em{ color:var(--gold) }
+  .experience .section-lead{ color:rgba(240,239,231,.72) }
+  .gallery{
+    display:grid; gap:14px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 90px;
+    margin-top:56px;
+  }
+  .gallery figure{
+    margin:0; position:relative; overflow:hidden;
+    border-radius: var(--radius);
+    background:#0a140a;
+    cursor: zoom-in;
+  }
+  .gallery figure::after{
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,.35) 100%);
+    opacity:0; transition: opacity .3s ease;
+    pointer-events:none;
+  }
+  .gallery figure:hover::after{ opacity:1 }
+  .gallery figure .zoom-hint{
+    position:absolute; bottom:12px; right:12px;
+    width:36px; height:36px; border-radius:50%;
+    background:rgba(255,255,255,.95); color:#0a140a;
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; transform: translateY(6px);
+    transition: opacity .25s ease, transform .25s ease;
+  }
+  .gallery figure:hover .zoom-hint{ opacity:1; transform:none }
+  .gallery figure .zoom-hint svg{ width:16px; height:16px }
+  .gallery figure img{
+    width:100%; height:100%; object-fit:cover;
+    transition: transform .6s ease;
+  }
+  .gallery figure:hover img{ transform: scale(1.05) }
+  .g1{ grid-column: span 3; grid-row: span 4 }
+  .g2{ grid-column: span 3; grid-row: span 2 }
+  .g3{ grid-column: span 2; grid-row: span 2 }
+  .g4{ grid-column: span 1; grid-row: span 2 }
+  .g5{ grid-column: span 2; grid-row: span 3 }
+  .g6{ grid-column: span 2; grid-row: span 3 }
+  .g7{ grid-column: span 2; grid-row: span 3 }
+  @media (max-width:800px){
+    .gallery{ grid-template-columns:repeat(4,1fr); grid-auto-rows: 80px }
+    .g1{ grid-column: span 4; grid-row: span 3 }
+    .g2,.g3,.g5,.g6,.g7{ grid-column: span 2; grid-row: span 2 }
+    .g4{ display:none }
+  }
+
+  /* ============ PRECIOS ============ */
+  .prices-head{
+    display:grid; grid-template-columns:1fr; gap:32px;
+    margin-bottom:48px;
+    align-items:end;
+  }
+  @media (min-width:900px){ .prices-head{ grid-template-columns: 1.2fr .8fr } }
+  .season-tabs{
+    display:inline-flex;
+    padding:5px; background:var(--surface-2);
+    border-radius: 999px; border:1px solid var(--line);
+    gap:4px; flex-wrap:wrap;
+  }
+  .season-tab{
+    padding: 10px 18px;
+    font-size:13.5px; font-weight:500;
+    border-radius: 999px;
+    color:var(--ink-soft);
+    transition: background .2s ease, color .2s ease;
+    position:relative;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .season-tab.active{ background:var(--forest); color:#fff; font-weight:600 }
+  .season-tab:hover:not(.active){ color:var(--forest) }
+  .season-tab .now-dot{
+    width:7px; height:7px; border-radius:50%;
+    background:#FF6B35;
+    box-shadow: 0 0 0 0 rgba(255,107,53,.7);
+    animation: pulse-now 2s infinite;
+  }
+  .season-tab.is-current::after{
+    content:"Ahora";
+    font-size:9.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+    color:#FF6B35;
+    margin-left:2px;
+  }
+  .season-tab.is-current.active::after{ color:#FFD9C5 }
+  .season-tab.is-current.active .now-dot{ background:#FFD9C5; box-shadow:0 0 0 0 rgba(255,217,197,.7) }
+  @keyframes pulse-now{
+    0%   { box-shadow: 0 0 0 0 rgba(255,107,53,.55); }
+    70%  { box-shadow: 0 0 0 8px rgba(255,107,53,0); }
+    100% { box-shadow: 0 0 0 0 rgba(255,107,53,0); }
+  }
+  .current-season-banner{
+    display:inline-flex; align-items:center; gap:10px;
+    background:#FFF1E8;
+    color:#B14418;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border:1px solid #FFD9C5;
+    font-size:12.5px; font-weight:600; letter-spacing:.04em;
+  }
+  .season-bar{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px; flex-wrap:wrap;
+    margin-top:24px;
+  }
+  .current-season-banner .live-dot{
+    width:8px; height:8px; border-radius:50%;
+    background:#FF6B35;
+    animation: pulse-now 2s infinite;
+  }
+  .current-season-banner strong{ color:#7A2A0A; font-weight:700 }
+
+  .price-card{
+    border:1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow:hidden;
+    background:#fff;
+    box-shadow: var(--shadow-1);
+  }
+  .price-card-head{
+    padding:24px 28px;
+    display:flex; flex-direction:column; gap:6px;
+    border-bottom:1px solid var(--line-soft);
+    background:var(--surface);
+  }
+  .price-card-head .season-name{
+    font-family:'Fraunces',serif; font-size:26px; font-weight:400; letter-spacing:-.01em;
+    color:var(--forest-deep);
+  }
+  .price-card-head .season-months{
+    font-size:13px; color:var(--muted); letter-spacing:.04em;
+  }
+  .price-table{
+    width:100%; border-collapse:collapse;
+  }
+  .price-table th, .price-table td{
+    padding:18px 24px;
+    text-align:left;
+    font-size:14.5px;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .price-table thead th{
+    font-weight:600; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--muted); background:var(--surface-2);
+  }
+  .price-table tbody tr:last-child td{ border-bottom:none }
+  .price-table tbody tr:hover{ background:var(--surface) }
+  .price-table .room{ font-weight:600; color:var(--ink) }
+  .price-table .room small{ display:block; font-weight:400; color:var(--muted); font-size:12px; margin-top:2px }
+  .price-table .price{ font-family:'Fraunces',serif; font-weight:500; font-size:17px; color:var(--ink) }
+  .price-table .price small{ color:var(--muted); font-family:'Inter',sans-serif; font-weight:400; font-size:11px; margin-left:4px; letter-spacing:.04em }
+  @media (max-width:700px){
+    .price-table th, .price-table td{ padding:14px 16px; font-size:13px }
+    .price-table .price{ font-size:15px }
+  }
+  .prices-footnotes{
+    margin-top:28px;
+    display:grid; gap:8px;
+    font-size:13px; color:var(--muted);
+  }
+  .prices-footnotes li{ list-style:none }
+  .prices-footnotes li::before{ content:"·"; color:var(--gold); margin-right:8px; font-weight:bold }
+
+  /* ============ FORMULARIO + CONTACTO ============ */
+  .contact{
+    background:var(--surface-2);
+  }
+  .contact-grid{
+    display:grid; grid-template-columns:1fr; gap:48px;
+  }
+  @media (min-width:900px){ .contact-grid{ grid-template-columns: .85fr 1.15fr; gap:80px } }
+  .contact-info h2{ margin-bottom:20px }
+  .info-block{
+    display:flex; flex-direction:column; gap:4px;
+    padding:18px 0;
+    border-top:1px solid var(--line);
+  }
+  .info-block:last-child{ border-bottom:1px solid var(--line) }
+  .info-block label{
+    font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--muted);
+  }
+  .info-block span{ font-size:16px; color:var(--ink); font-weight:500 }
+
+  .form-card{
+    background:#fff;
+    padding:36px;
+    border-radius: var(--radius-lg);
+    border:1px solid var(--line);
+    box-shadow: var(--shadow-1);
+  }
+  .form-card h3{
+    font-family:'Fraunces',serif; font-weight:400; font-size:26px; letter-spacing:-.01em;
+    margin:0 0 6px;
+  }
+  .form-card .form-sub{
+    font-size:14.5px; color:var(--ink-soft); margin:0 0 28px;
+  }
+  .form-row{
+    display:grid; grid-template-columns:1fr; gap:16px;
+    margin-bottom:16px;
+  }
+  @media (min-width:700px){ .form-row.cols-2{ grid-template-columns:1fr 1fr } }
+  .form-field{ display:flex; flex-direction:column; gap:7px }
+  .form-field label{
+    font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .form-field input,
+  .form-field select,
+  .form-field textarea{
+    border:1px solid var(--line);
+    background:var(--surface);
+    border-radius: var(--radius);
+    padding: 13px 14px;
+    font-family:inherit; font-size:15px; color:var(--ink);
+    outline:none; resize:vertical;
+    transition: border-color .2s, box-shadow .2s, background .2s;
+  }
+  .form-field textarea{ min-height:120px }
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus{
+    border-color:var(--forest); background:#fff;
+    box-shadow: 0 0 0 3px rgba(45,90,39,.10);
+  }
+  .form-submit{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    flex-wrap:wrap;
+    margin-top:10px;
+  }
+  .form-submit small{ color:var(--muted); font-size:12.5px; max-width:280px; line-height:1.45 }
+  .btn-submit{
+    background:var(--forest); color:#fff;
+    padding:14px 22px; border-radius:var(--radius);
+    font-weight:600; font-size:14.5px;
+    display:inline-flex; align-items:center; gap:10px;
+    transition: background .2s ease;
+  }
+  .btn-submit:hover{ background:var(--forest-deep) }
+
+  /* ============ CTA BANNER ============ */
+  .cta-banner{
+    position:relative; overflow:hidden;
+    min-height: 520px;
+    display:flex; align-items:center;
+    color:#fff;
+    isolation:isolate;
+  }
+  .cta-banner::before{
+    content:""; position:absolute; inset:0; z-index:-2;
+    background: url('assets/cta-banner.png') center/cover no-repeat;
+    transform: scale(1.02);
+  }
+  .cta-banner::after{
+    content:""; position:absolute; inset:0; z-index:-1;
+    background:
+      linear-gradient(90deg, rgba(8,15,8,.78) 0%, rgba(8,15,8,.55) 45%, rgba(8,15,8,.05) 75%, rgba(8,15,8,0) 100%),
+      linear-gradient(180deg, rgba(8,15,8,.25) 0%, rgba(8,15,8,.45) 100%);
+  }
+  .cta-banner-inner{
+    padding: 88px 0;
+    max-width: none;
+    text-align: left;
+  }
+  .cta-banner-inner > *{ max-width: 640px }
+  .cta-banner .eyebrow{ color:var(--gold); margin-bottom:18px }
+  .cta-banner .eyebrow::before{ background: var(--gold) }
+  .cta-banner h2{
+    font-family:'Fraunces', serif; font-weight:300;
+    font-size: clamp(36px, 4.8vw, 60px);
+    line-height:1.05; letter-spacing:-.025em;
+    margin: 0 0 32px;
+    text-wrap:balance;
+    color:#fff;
+  }
+  .cta-banner h2 em{ font-style:italic; color:var(--gold); font-weight:400 }
+  .cta-banner-actions{
+    display:flex; gap:14px; flex-wrap:wrap; align-items:center;
+  }
+  .cta-banner-btn{
+    display:inline-flex; align-items:center; gap:10px;
+    background:#fff; color:var(--forest-deep);
+    padding:16px 26px; border-radius:var(--radius);
+    font-weight:600; font-size:15px; letter-spacing:.01em;
+    transition: background .2s ease, color .2s ease, transform .15s ease;
+    box-shadow: 0 16px 40px -16px rgba(0,0,0,.6);
+  }
+  .cta-banner-btn:hover{
+    background: var(--gold); color:#1F1305;
+    transform: translateY(-2px);
+  }
+  .cta-banner-btn-ghost{
+    display:inline-flex; align-items:center; gap:10px;
+    color:#fff;
+    padding:16px 22px; border-radius:var(--radius);
+    border:1px solid rgba(255,255,255,.4);
+    font-weight:500; font-size:14.5px;
+    transition: background .2s ease, border-color .2s ease;
+  }
+  .cta-banner-btn-ghost:hover{
+    background:rgba(255,255,255,.1);
+    border-color:rgba(255,255,255,.7);
+  }
+  @media (max-width:700px){
+    .cta-banner{ min-height: 440px }
+    .cta-banner-inner{ padding: 72px 0 }
+  }
+
+  /* ============ FOOTER ============ */
+  footer{
+    background:var(--forest-ink); color:rgba(240,239,231,.7);
+    padding: 64px 0 32px;
+  }
+  .footer-grid{
+    display:grid; grid-template-columns:1fr; gap:48px;
+    padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,.1);
+  }
+  @media (min-width:800px){ .footer-grid{ grid-template-columns: 1.5fr 1fr 1fr 1fr } }
+  .footer-brand img{ height:48px; width:auto; filter:brightness(0) invert(1); opacity:.95; margin-bottom:18px }
+  .footer-brand p{ font-size:14px; line-height:1.6; max-width:320px; color:rgba(240,239,231,.55) }
+  .footer-col h5{ color:#fff; font-size:13px; font-weight:600; letter-spacing:.06em; margin:0 0 16px; text-transform:uppercase }
+  .footer-col ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; font-size:14px }
+  .footer-col ul a{ color:rgba(240,239,231,.65); transition:color .2s }
+  .footer-col ul a:hover{ color:var(--gold) }
+  .footer-bottom{
+    display:flex; justify-content:space-between; align-items:center; gap:16px;
+    flex-wrap:wrap;
+    padding-top:24px; font-size:12.5px; color:rgba(240,239,231,.45);
+  }
+
+  /* ============ WHATSAPP FLOAT ============ */
+  .wa-float{
+    position:fixed; bottom:24px; right:24px; z-index:60;
+    display:inline-flex; align-items:center; gap:10px;
+    padding: 14px 18px 14px 14px;
+    background:#25D366; color:#fff;
+    border-radius:999px;
+    font-family:'Inter',sans-serif; font-weight:600; font-size:14px;
+    box-shadow: 0 10px 30px -8px rgba(37,211,102,.55), 0 4px 14px rgba(0,0,0,.18);
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    text-decoration:none;
+  }
+  .wa-float:hover{
+    transform: translateY(-2px);
+    background:#1DBE5A;
+    box-shadow: 0 14px 36px -10px rgba(37,211,102,.65), 0 6px 16px rgba(0,0,0,.22);
+  }
+  .wa-float .wa-icon{
+    width:38px; height:38px; border-radius:50%;
+    background:#fff;
+    display:inline-flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .wa-float .wa-icon svg{ width:22px; height:22px }
+  .wa-float .wa-text{ display:flex; flex-direction:column; line-height:1.15 }
+  .wa-float .wa-text small{ font-weight:500; opacity:.85; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase }
+  .wa-float::before{
+    content:""; position:absolute; inset:0; border-radius:999px;
+    box-shadow: 0 0 0 0 rgba(37,211,102,.55);
+    animation: wa-pulse 2.4s ease-out infinite;
+    pointer-events:none;
+  }
+  @keyframes wa-pulse{
+    0%   { box-shadow: 0 0 0 0 rgba(37,211,102,.55) }
+    70%  { box-shadow: 0 0 0 18px rgba(37,211,102,0) }
+    100% { box-shadow: 0 0 0 0 rgba(37,211,102,0) }
+  }
+  @media (max-width:600px){
+    .wa-float{ bottom:16px; right:16px; padding:10px 14px 10px 10px }
+    .wa-float .wa-text{ display:none }
+    .wa-float .wa-icon{ width:34px; height:34px }
+  }
+
+  /* ============ LIGHTBOX ============ */
+  .lightbox{
+    position:fixed; inset:0; z-index:100;
+    background:rgba(8,15,8,.96);
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; visibility:hidden;
+    transition: opacity .35s ease, visibility .35s ease;
+  }
+  .lightbox.open{ opacity:1; visibility:visible }
+  .lightbox-stage{
+    position:relative;
+    width:100%; height:100%;
+    display:flex; align-items:center; justify-content:center;
+    padding: 80px 80px;
+  }
+  @media (max-width:700px){ .lightbox-stage{ padding: 70px 16px } }
+  .lightbox-img{
+    max-width:100%; max-height:100%;
+    width:auto; height:auto;
+    object-fit:contain;
+    border-radius: 6px;
+    opacity:0;
+    transform: scale(.985);
+    transition: opacity .35s ease, transform .45s cubic-bezier(.2,.7,.2,1);
+    box-shadow: 0 30px 80px rgba(0,0,0,.55);
+  }
+  .lightbox-img.ready{ opacity:1; transform:none }
+  .lightbox-close{
+    position:absolute; top:24px; right:24px;
+    width:44px; height:44px; border-radius:50%;
+    background:rgba(255,255,255,.08); color:#fff;
+    display:inline-flex; align-items:center; justify-content:center;
+    border:1px solid rgba(255,255,255,.15);
+    transition: background .2s ease, transform .2s ease;
+  }
+  .lightbox-close:hover{ background:rgba(255,255,255,.18); transform: rotate(90deg) }
+  .lightbox-close svg{ width:18px; height:18px }
+  .lightbox-nav{
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:52px; height:52px; border-radius:50%;
+    background:rgba(255,255,255,.06); color:#fff;
+    display:inline-flex; align-items:center; justify-content:center;
+    border:1px solid rgba(255,255,255,.14);
+    backdrop-filter: blur(6px);
+    transition: background .2s ease, color .2s ease;
+  }
+  .lightbox-nav:hover{ background: var(--gold); color:#0a140a; border-color:transparent }
+  .lightbox-nav.prev{ left:24px }
+  .lightbox-nav.next{ right:24px }
+  .lightbox-nav svg{ width:20px; height:20px }
+  @media (max-width:700px){
+    .lightbox-nav{ width:42px; height:42px }
+    .lightbox-nav.prev{ left:10px }
+    .lightbox-nav.next{ right:10px }
+    .lightbox-close{ top:14px; right:14px }
+  }
+  .lightbox-caption{
+    position:absolute; bottom:24px; left:0; right:0;
+    text-align:center;
+    color:rgba(255,255,255,.78);
+    font-size:13.5px; letter-spacing:.04em;
+    display:flex; gap:14px; align-items:center; justify-content:center;
+  }
+  .lightbox-caption .counter{
+    font-family:'Fraunces',serif; font-size:14px; color:var(--gold);
+  }
+  .lightbox-thumbs{
+    position:absolute; bottom:54px; left:50%; transform:translateX(-50%);
+    display:flex; gap:8px;
+    max-width: calc(100% - 40px);
+    overflow-x:auto; padding:6px;
+    scrollbar-width:none;
+  }
+  .lightbox-thumbs::-webkit-scrollbar{ display:none }
+  .lightbox-thumbs button{
+    width:56px; height:40px; border-radius:4px;
+    background-size:cover; background-position:center;
+    opacity:.45; transition: opacity .25s ease, outline-color .25s ease;
+    outline:2px solid transparent; outline-offset:2px;
+    flex-shrink:0;
+  }
+  .lightbox-thumbs button.active{ opacity:1; outline-color: var(--gold) }
+  .lightbox-thumbs button:hover{ opacity:.85 }
+  @media (max-width:700px){
+    .lightbox-thumbs{ bottom:48px }
+    .lightbox-thumbs button{ width:42px; height:30px }
+  }
+
+  /* ============ UTIL ============ */
+  .arrow{ width:14px; height:14px; transition: transform .2s ease }
+  .cta-primary:hover .arrow,
+  .cabin-cta:hover .arrow,
+  .nav-cta:hover .arrow{ transform: translateX(3px) }
+  .reveal{ opacity:0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease }
+  .reveal.in{ opacity:1; transform:none }
+</style>
+</head>
+<body>
+
+<!-- =========== NAV =========== -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#top" aria-label="Rakau Lodge — Inicio">
+      <img src="assets/logo-color.png" alt="Rakau Lodge" style="height: 101px" />
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="#manifiesto">365 días</a>
+      <a href="#cabanas">Cabañas</a>
+      <a href="#amenities">Experiencia</a>
+      <a href="#precios">Tarifas</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="nav-cta" href="#hero">
+      Reservar
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- =========== HERO =========== -->
+<section class="hero" id="hero" data-screen-label="01 Hero">
+  <div class="hero-bg" id="heroBg" aria-hidden="true">
+    <div class="hero-slide active" style="background-image:url('assets/hero-1.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/hero-2.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/hero-3.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/hero-4.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/hero-5.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/hero-6.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/hero-7.jpg')"></div>
+  </div>
+  <div class="container hero-inner">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Pucón · Araucanía · Operación 365</span>
+        <h1>Hacia un destino<br/><em>365 días</em> al año.</h1>
+        <p class="lead">Tu escapada de desconexión en Pucón, disponible hoy y siempre. Rompe la rutina cuando tú lo decidas — el bosque, la tinaja y la fogata están listos.</p>
+        <div class="hero-meta">
+          <div><strong>15 km</strong>del centro de Pucón</div>
+          <div><strong>Río Trancura</strong>a metros de tu cabaña</div>
+          <div><strong>Bosque nativo</strong>privacidad absoluta</div>
+        </div>
+      </div>
+
+      <!-- Booking widget (NoBeds mock) -->
+      <form class="booking" id="bookingWidget" aria-label="Consultar disponibilidad">
+        <div class="booking-head">
+          <h3>Consultar disponibilidad</h3>
+          <span class="pill">Temporada baja <strong style="margin-left:4px">AHORA</strong></span>
+        </div>
+        <div class="booking-grid">
+          <label class="field">
+            <span>Check-in</span>
+            <input type="date" id="checkin" required />
+          </label>
+          <label class="field">
+            <span>Check-out</span>
+            <input type="date" id="checkout" required />
+          </label>
+          <label class="field full">
+            <span>Huéspedes</span>
+            <select id="guests">
+              <option>2 adultos</option>
+              <option>2 adultos + 1 niño</option>
+              <option>2 adultos + 2 niños</option>
+              <option>3 adultos</option>
+              <option>1 adulto</option>
+            </select>
+          </label>
+          <label class="field full">
+            <span>Tipo de habitación</span>
+            <select id="roomtype">
+              <option>Todas las opciones</option>
+              <option>Doble Estándar</option>
+              <option>Doble Villa</option>
+              <option>Doble Suite</option>
+            </select>
+          </label>
+        </div>
+        <button type="submit" class="cta-primary">
+          Ver Disponibilidad y Reservar
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+        <div class="booking-foot">
+          <span>Pago seguro · <strong>Confirmación inmediata</strong></span>
+          <span>vía NoBeds</span>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="hero-dots" id="heroDots" aria-hidden="true">
+    <button class="active" data-i="0" aria-label="Imagen 1"></button>
+    <button data-i="1" aria-label="Imagen 2"></button>
+    <button data-i="2" aria-label="Imagen 3"></button>
+    <button data-i="3" aria-label="Imagen 4"></button>
+    <button data-i="4" aria-label="Imagen 5"></button>
+    <button data-i="5" aria-label="Imagen 6"></button>
+    <button data-i="6" aria-label="Imagen 7"></button>
+  </div>
+</section>
+
+<!-- =========== MANIFIESTO =========== -->
+<section class="manifesto" id="manifiesto" data-screen-label="02 Manifiesto" style="background-color: rgb(14, 31, 12)">
+  <div class="container">
+    <div class="manifesto-grid">
+      <div>
+        <div class="section-eyebrow">Ruptura de estacionalidad</div>
+        <h2>El sur no se pausa.<br/><em>Nosotros tampoco.</em></h2>
+        <p>A partir de mayo de 2026, Rakau Lodge abre sus puertas los 365 días del año. Porque el otoño con su lluvia tibia, el invierno con sus cielos despejados y la primavera con su bosque encendido — todos se disfrutan mejor desde una tinaja humeante frente al río.</p>
+        <p style="margin-top:16px">Calefacción central, fogatas siempre encendidas, restaurante con menú de tres tiempos y un entorno boscoso que cambia con cada estación. La escapada deja de ser un plan de verano.</p>
+
+        <div class="manifesto-stats">
+          <div class="stat"><strong>365</strong><span>días abiertos</span></div>
+          <div class="stat"><strong>15 km</strong><span>de Pucón centro</span></div>
+          <div class="stat"><strong>1</strong><span>río a tu puerta</span></div>
+        </div>
+      </div>
+      <div class="manifesto-visual" id="seasonCarousel">
+        <div class="slides">
+          <img src="assets/season-primavera.png" alt="Entrada del lodge en primavera" data-season="Primavera" class="active" />
+          <img src="assets/season-verano.png" alt="Entrada del lodge en verano" data-season="Verano" />
+          <img src="assets/season-otono.png" alt="Entrada del lodge en otoño" data-season="Otoño" loading="lazy" />
+          <img src="assets/season-invierno.png" alt="Entrada del lodge en invierno" data-season="Invierno" loading="lazy" />
+        </div>
+        <div class="carousel-arrows" aria-hidden="false">
+          <button type="button" id="seasonPrev" aria-label="Estación anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button type="button" id="seasonNext" aria-label="Siguiente estación">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+        <span class="tag"><span class="season-label" id="seasonLabel">Primavera</span></span>
+        <div class="season-dots" id="seasonDots" role="tablist" aria-label="Estaciones">
+          <button class="active" data-i="0" aria-label="Primavera"></button>
+          <button data-i="1" aria-label="Verano"></button>
+          <button data-i="2" aria-label="Otoño"></button>
+          <button data-i="3" aria-label="Invierno"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== CABAÑAS =========== -->
+<section id="cabanas" data-screen-label="03 Cabañas">
+  <div class="container">
+    <div class="cabins-head">
+      <div class="cabins-head-text">
+        <div class="section-eyebrow">Habitaciones</div>
+        <h2 class="section-title">Dos formas de habitar <em>el bosque.</em></h2>
+        <p class="section-lead">Cabañas independientes entre helechos y árboles centenarios. Diseñadas para dos personas que buscan silencio o para grupos que quieren compartir sin renunciar a la privacidad.</p>
+      </div>
+      <div class="cabins-head-illustration" aria-hidden="true">
+        <img src="assets/bird-illustration.png" alt="" loading="lazy" />
+      </div>
+    </div>
+
+    <div class="cabins-grid">
+      <!-- Featured: Romántica -->
+      <article class="cabin featured">
+        <img src="assets/romantica.png" alt="Tinaja privada en el bosque al atardecer" loading="lazy" style="object-position: center top"/>
+        <span class="featured-badge">Más reservada</span>
+        <div class="cabin-body">
+          <div class="chips">
+            <span class="chip gold">Tinaja privada</span>
+            <span class="chip">Para dos</span>
+            <span class="chip">Bosque profundo</span>
+          </div>
+          <h3>Cabaña <em>Romántica</em></h3>
+          <p>Suite acogedora rodeada de bosque nativo, con tinaja caliente privada en deck propio. Para parejas que llegan a desconectarse del mundo — y a reconectar con el otro.</p>
+          <div class="cabin-foot">
+            <div class="cabin-price">
+              <small>Desde</small>
+              <strong>$199.000 <span>/ noche · temporada baja</span></strong>
+            </div>
+            <a href="#hero" class="cabin-cta">
+              Consultar fechas
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Familiar -->
+      <article class="cabin">
+        <img src="assets/family-reading.jpg" alt="Espacio familiar con vista al bosque" loading="lazy"/>
+        <div class="cabin-body">
+          <div class="chips">
+            <span class="chip green">Entorno natural</span>
+            <span class="chip">Hasta 3 pax</span>
+          </div>
+          <h3>Cabaña <em>Familiar</em></h3>
+          <p>Espacios amplios y contacto directo con el bosque y el río. Pensada para grupos pequeños que buscan descanso y aventura segura.</p>
+          <div class="cabin-foot">
+            <div class="cabin-price">
+              <small>Desde</small>
+              <strong>$160.000 <span>/ noche</span></strong>
+            </div>
+            <a href="#hero" class="cabin-cta">
+              Consultar fechas
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =========== AMENITIES =========== -->
+<section class="amenities" id="amenities" data-screen-label="04 Experiencia">
+  <div class="container">
+    <div class="amenities-head">
+      <div>
+        <div class="section-eyebrow">Lo que justifica venir</div>
+        <h2 class="section-title">Un refugio diseñado para <em>quedarse adentro.</em></h2>
+      </div>
+      <p class="section-lead">No competimos con descuentos. Competimos con experiencia. Cada detalle del lodge está pensado para que el clima del sur sea una excusa — no un obstáculo.</p>
+    </div>
+
+    <div class="amenities-grid">
+      <div class="amenity">
+        <div class="amenity-media"><img src="assets/romantica.png" alt="Tinaja caliente en deck privado" loading="lazy" style="object-position: center top"/></div>
+        <div class="amenity-body">
+          <span class="num">— 01</span>
+          <h4>Tinajas calientes, siempre listas</h4>
+          <p>Hot tubs a leña a orillas del río Trancura, disponibles llueva, nieve o haga sol. Reservables desde las 15:00.</p>
+        </div>
+      </div>
+      <div class="amenity">
+        <div class="amenity-media"><img src="assets/forest-cabin.jpg" alt="Cabañas entre el bosque nativo" loading="lazy"/></div>
+        <div class="amenity-body">
+          <span class="num">— 02</span>
+          <h4>Bosque nativo en cada ventana</h4>
+          <p>Cabañas dispersas entre coigües, mañíos y helechos. Pasarelas de madera unen cada rincón sin perturbar el entorno.</p>
+        </div>
+      </div>
+      <div class="amenity">
+        <div class="amenity-media"><img src="assets/dinner-plate.jpg" alt="Plato del restaurant Rakau" loading="lazy"/></div>
+        <div class="amenity-body">
+          <span class="num">— 03</span>
+          <h4>Restaurant RAKAU</h4>
+          <p>Menú de tres tiempos con producto local, vino de la casa y sobremesa frente a la chimenea central de la casa de huéspedes.</p>
+        </div>
+      </div>
+      <div class="amenity">
+        <div class="amenity-media"><img src="assets/balcony.jpg" alt="Balcón privado con vista al bosque" loading="lazy"/></div>
+        <div class="amenity-body">
+          <span class="num">— 04</span>
+          <h4>Privacidad absoluta</h4>
+          <p>Sin pasillos, sin lobbies bulliciosos. Cada cabaña tiene entrada propia y deck con vista directa al bosque.</p>
+        </div>
+      </div>
+      <div class="amenity">
+        <div class="amenity-media"><img src="assets/bathroom.jpg" alt="Baño spa con maderas nobles" loading="lazy"/></div>
+        <div class="amenity-body">
+          <span class="num">— 05</span>
+          <h4>Masajes y spa a leña</h4>
+          <p>Servicios de masaje de 60 y 90 minutos, sumados al uso de tinajas privadas. Reservables con 24 hrs de anticipación.</p>
+        </div>
+      </div>
+      <div class="amenity">
+        <div class="amenity-media"><img src="assets/river.jpg" alt="Río Trancura a metros del lodge" loading="lazy"/></div>
+        <div class="amenity-body">
+          <span class="num">— 06</span>
+          <h4>Aventura a la puerta</h4>
+          <p>Rafting en el Trancura, termas, trekking en Huerquehue, cabalgatas. Coordinamos el día completo desde recepción.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== EXPERIENCIA / GALERÍA =========== -->
+<section class="experience" data-screen-label="05 Galería">
+  <div class="container">
+    <div class="section-eyebrow">Una postal por hora</div>
+    <h2 class="section-title">El sur, en <em>cuadros.</em></h2>
+    <p class="section-lead">Imágenes reales del lodge a lo largo del año. La luz cambia, el bosque cambia, el plato cambia. Lo que permanece es la pausa.</p>
+
+    <div class="gallery">
+      <figure class="g1"><img src="assets/lounge-fireplace.jpg" alt="Living principal con chimenea central" loading="lazy"/><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span></figure>
+      <figure class="g2"><img src="assets/river.jpg" alt="Río Trancura al amanecer" loading="lazy"/><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span></figure>
+      <figure class="g3"><img src="assets/dinner-plate.jpg" alt="Plato del restaurant Rakau" loading="lazy"/><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span></figure>
+      <figure class="g4"><img src="assets/bathroom.jpg" alt="Baño con lavamanos de piedra" loading="lazy"/><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span></figure>
+      <figure class="g5"><img src="assets/suite-bed.jpg" alt="Suite con cabecera de madera recuperada" loading="lazy"/><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span></figure>
+      <figure class="g6"><img src="assets/forest-bunny.jpg" alt="Sendero del lodge con fauna local" loading="lazy"/><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span></figure>
+      <figure class="g7"><img src="assets/forest-cabin-2.jpg" alt="Cabaña entre el follaje del bosque" loading="lazy"/><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg></span></figure>
+    </div>
+  </div>
+</section>
+
+<!-- =========== PRECIOS =========== -->
+<section id="precios" data-screen-label="06 Precios">
+  <div class="container">
+    <div class="prices-head">
+      <div>
+        <div class="section-eyebrow">Tarifas 2026 · 2027</div>
+        <h2 class="section-title">Por habitación, por noche. <em>IVA incluido.</em></h2>
+      </div>
+      <p class="section-lead">Tres temporadas, tres regímenes. Niños hasta 5 años no pagan compartiendo habitación. Máximo 3 personas por habitación.</p>
+    </div>
+
+    <div class="season-bar">
+      <div class="season-tabs" role="tablist" aria-label="Temporada">
+        <button class="season-tab active" data-season="baja" role="tab">Temporada Baja</button>
+        <button class="season-tab" data-season="media" role="tab">Temporada Media</button>
+        <button class="season-tab" data-season="alta" role="tab">Temporada Alta</button>
+      </div>
+      <div class="current-season-banner" id="currentSeasonBanner" hidden>
+        <span class="live-dot" aria-hidden="true"></span>
+        <span>Estamos en <strong id="currentSeasonName">Temporada Baja</strong> &middot; <span id="currentSeasonMonth">Mayo 2026</span></span>
+      </div>
+    </div>
+
+    <div class="price-card" style="margin-top:24px">
+      <div class="price-card-head">
+        <span class="season-name" id="seasonName">Temporada Baja</span>
+        <span class="season-months" id="seasonMonths">Mayo · Agosto · Octubre 2026</span>
+      </div>
+      <div style="overflow-x:auto">
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>Habitación</th>
+            <th>Bed &amp; Breakfast</th>
+            <th>Half Board</th>
+            <th>Full Board</th>
+            <th>Viajero extra</th>
+          </tr>
+        </thead>
+        <tbody id="priceBody">
+          <!-- filled by JS -->
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <ul class="prices-footnotes">
+      <li>Bed &amp; Breakfast incluye estadía + desayuno.</li>
+      <li>Half Board incluye estadía + desayuno + cena en restaurant RAKAU.</li>
+      <li>Full Board incluye estadía + desayuno + almuerzo + cena en restaurant RAKAU.</li>
+      <li>Menú de 3 tiempos con bebida, vino de la casa o jugo y té o café. Propina no incluida.</li>
+      <li>Tarifa "viajero extra" aplica para pasajero adicional en cama extra compartiendo con un adulto.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =========== CONTACTO =========== -->
+<section class="contact" id="contacto" data-screen-label="07 Contacto">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-eyebrow">¿Algo más específico?</div>
+        <h2 class="section-title">Eventos, grupos o <em>fechas a medida.</em></h2>
+        <p class="section-lead" style="margin-bottom:32px">Si necesitas una cotización para un grupo, una celebración privada o un evento corporativo, escríbenos. Te responde una persona, no un bot.</p>
+
+        <div class="info-block">
+          <label>Ubicación</label>
+          <span>Pucón · Araucanía · Chile</span>
+        </div>
+        <div class="info-block">
+          <label>Teléfono</label>
+          <span>+569 5749 5148</span>
+        </div>
+        <div class="info-block">
+          <label>Email</label>
+          <span>info@rakaulodge.com</span>
+        </div>
+        <div class="info-block">
+          <label>Instagram</label>
+          <span>@rakaulodge</span>
+        </div>
+      </div>
+
+      <form class="form-card" id="contactForm">
+        <h3>Cuéntanos qué buscas</h3>
+        <p class="form-sub">Respondemos en menos de 24 horas hábiles.</p>
+
+        <div class="form-row cols-2">
+          <div class="form-field">
+            <label for="fname">Nombre</label>
+            <input type="text" id="fname" name="fname" autocomplete="given-name" placeholder="Ej: Andrés" required />
+          </div>
+          <div class="form-field">
+            <label for="lname">Apellido</label>
+            <input type="text" id="lname" name="lname" autocomplete="family-name" placeholder="Ej: Olivares" required />
+          </div>
+        </div>
+
+        <div class="form-row cols-2">
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="Ej: andres@correo.cl" required />
+          </div>
+          <div class="form-field">
+            <label for="phone">Teléfono</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="Ej: +569 1234 5678" />
+          </div>
+        </div>
+
+        <div class="form-row cols-2">
+          <div class="form-field">
+            <label for="dates">Fechas tentativas</label>
+            <input type="text" id="dates" name="dates" placeholder="Ej: 12 al 15 de junio" />
+          </div>
+          <div class="form-field">
+            <label for="ftype">Tipo de consulta</label>
+            <select id="ftype" name="ftype">
+              <option>Escapada de pareja</option>
+              <option>Familia / grupo pequeño</option>
+              <option>Evento corporativo</option>
+              <option>Celebración privada</option>
+              <option>Otro</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="msg">Mensaje</label>
+            <textarea id="msg" name="msg" placeholder="Cuéntanos cuántas personas, qué buscan, fechas, restricciones alimentarias…"></textarea>
+          </div>
+        </div>
+
+        <div class="form-submit">
+          <small>Al enviar aceptas nuestra política de privacidad y el contacto comercial por parte del equipo Rakau.</small>
+          <button type="submit" class="btn-submit">
+            Enviar consulta
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- =========== CTA BANNER =========== -->
+<section class="cta-banner" data-screen-label="08 CTA Final" aria-label="Reserva tu estadía">
+  <div class="container cta-banner-inner">
+    <div class="eyebrow">Tu próximo viaje al sur</div>
+    <h2>El encanto rústico y la tranquilidad <em>te esperan.</em></h2>
+    <div class="cta-banner-actions">
+      <a href="#hero" class="cta-banner-btn">
+        Reservar ahora
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#contacto" class="cta-banner-btn-ghost">Cotizar grupo o evento</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========== FOOTER =========== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo-color.png" alt="Rakau Lodge" style="width: 86px" />
+        <p>Hotel boutique a 15 km de Pucón, a orillas del río Trancura. Abierto los 365 días del año.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Explorar</h5>
+        <ul>
+          <li><a href="#manifiesto">365 días abiertos</a></li>
+          <li><a href="#cabanas">Cabañas</a></li>
+          <li><a href="#amenities">Experiencia</a></li>
+          <li><a href="#precios">Tarifas</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Reservar</h5>
+        <ul>
+          <li><a href="#hero">Consultar disponibilidad</a></li>
+          <li><a href="#contacto">Cotización grupos</a></li>
+          <li><a href="#contacto">Eventos corporativos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contacto</h5>
+        <ul>
+          <li>info@rakaulodge.com</li>
+          <li>+569 5749 5148</li>
+          <li>Pucón · Araucanía</li>
+          <li><a href="#">@rakaulodge</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Rakau Lodge · Todos los derechos reservados · Desarollado por <a href="https://deltadigital.cl/" target="_blank" rel="noopener" style="color:var(--gold); text-decoration:none">Delta Digital</a>.</span>
+      <span>Reservas vía NoBeds · Pago seguro</span>
+    </div>
+  </div>
+</footer>
+
+<!-- =========== WHATSAPP FLOTANTE =========== -->
+<a class="wa-float" href="https://wa.me/56957495148?text=Hola%20Rakau%20Lodge%2C%20quisiera%20consultar%20por%20una%20reserva." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <span class="wa-icon" aria-hidden="true">
+    <svg viewBox="0 0 32 32" fill="#25D366" xmlns="http://www.w3.org/2000/svg"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.117.555 4.18 1.61 6.006L4 29l8.218-2.572A11.949 11.949 0 0 0 16.001 27C22.629 27 28 21.627 28 15S22.629 3 16.001 3zm6.95 17.087c-.296.83-1.722 1.59-2.4 1.69-.612.09-1.39.128-2.244-.142-.518-.165-1.183-.385-2.034-.751-3.582-1.546-5.92-5.15-6.099-5.388-.179-.238-1.46-1.94-1.46-3.702 0-1.761.92-2.628 1.246-2.987.327-.358.714-.448.952-.448s.476.002.685.012c.219.011.513-.083.804.614.297.715 1.01 2.476 1.099 2.654.089.179.149.387.03.625-.119.238-.179.387-.357.595-.179.208-.376.464-.536.624-.179.179-.366.373-.157.733.208.358.927 1.529 1.99 2.476 1.367 1.219 2.52 1.598 2.879 1.776.358.179.566.149.775-.09.208-.238.892-1.04 1.13-1.397.238-.358.476-.298.804-.179.327.119 2.078.98 2.435 1.159.357.179.595.268.685.417.089.149.089.864-.208 1.694z"/></svg>
+  </span>
+  <span class="wa-text">
+    <small>Escríbenos</small>
+    <span>WhatsApp</span>
+  </span>
+</a>
+
+<!-- =========== LIGHTBOX =========== -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Vista previa de imagen" aria-hidden="true">
+  <div class="lightbox-stage">
+    <img class="lightbox-img" id="lightboxImg" alt="" />
+  </div>
+  <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+  </button>
+  <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Anterior">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="lightbox-nav next" id="lightboxNext" aria-label="Siguiente">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+  <div class="lightbox-thumbs" id="lightboxThumbs" aria-label="Miniaturas"></div>
+  <div class="lightbox-caption">
+    <span class="counter" id="lightboxCounter">1 / 7</span>
+    <span id="lightboxAlt"></span>
+  </div>
+</div>
+
+<script>
+  // === Nav scroll state
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // === Booking widget — default dates (today, tomorrow)
+  (function(){
+    const ci = document.getElementById('checkin');
+    const co = document.getElementById('checkout');
+    const today = new Date();
+    const tomorrow = new Date(today); tomorrow.setDate(today.getDate()+1);
+    const fmt = d => d.toISOString().slice(0,10);
+    ci.value = fmt(today); ci.min = fmt(today);
+    co.value = fmt(tomorrow); co.min = fmt(tomorrow);
+    ci.addEventListener('change', () => {
+      const c = new Date(ci.value); c.setDate(c.getDate()+1);
+      co.min = fmt(c);
+      if (new Date(co.value) <= new Date(ci.value)) co.value = fmt(c);
+    });
+  })();
+
+  // === Booking submit → mock redirect to NoBeds
+  document.getElementById('bookingWidget').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const ci = document.getElementById('checkin').value;
+    const co = document.getElementById('checkout').value;
+    const guests = document.getElementById('guests').value;
+    const room = document.getElementById('roomtype').value;
+    // In producción: window.location.href = `https://nobeds.com/.../?checkin=${ci}&checkout=${co}&...`
+    const btn = e.target.querySelector('.cta-primary');
+    const original = btn.innerHTML;
+    btn.innerHTML = 'Redirigiendo a NoBeds…';
+    btn.style.background = '#0f5e2c';
+    setTimeout(() => {
+      alert(`Conectando con NoBeds…\n\nCheck-in: ${ci}\nCheck-out: ${co}\nHuéspedes: ${guests}\nHabitación: ${room}\n\n(En producción: redirección al motor con parámetros precargados)`);
+      btn.innerHTML = original;
+      btn.style.background = '';
+    }, 700);
+  });
+
+  // === Pricing data
+  const priceData = {
+    baja: {
+      name: 'Temporada Baja',
+      months: 'Mayo · Agosto · Octubre 2026',
+      extra: { bb: 100000, hb: 135000, fb: 140000 },
+      rooms: [
+        { name: 'Doble Estándar', desc: 'Habitación cómoda con vista al bosque', bb: 160000, hb: 230000, fb: 240000 },
+        { name: 'Doble Villa',    desc: 'Cabaña independiente entre el bosque', bb: 180000, hb: 250000, fb: 260000 },
+        { name: 'Doble Suite',    desc: 'Suite premium con tinaja privada',     bb: 199000, hb: 269000, fb: 279000 },
+      ]
+    },
+    media: {
+      name: 'Temporada Media',
+      months: 'Abril · Junio · Julio · Septiembre · Noviembre',
+      extra: { bb: 75000, hb: 110000, fb: 115000 },
+      rooms: [
+        { name: 'Doble Estándar', desc: 'Habitación cómoda con vista al bosque', bb: 190000, hb: 260000, fb: 270000 },
+        { name: 'Doble Villa',    desc: 'Cabaña independiente entre el bosque', bb: 210000, hb: 280000, fb: 290000 },
+        { name: 'Doble Suite',    desc: 'Suite premium con tinaja privada',     bb: 230000, hb: 300000, fb: 310000 },
+      ]
+    },
+    alta: {
+      name: 'Temporada Alta',
+      months: 'Diciembre 2026 · Enero · Febrero · Marzo 2027',
+      extra: { bb: 50000, hb: 85000, fb: 90000 },
+      rooms: [
+        { name: 'Doble Estándar', desc: 'Habitación cómoda con vista al bosque', bb: 230000, hb: 300000, fb: 310000 },
+        { name: 'Doble Villa',    desc: 'Cabaña independiente entre el bosque', bb: 250000, hb: 320000, fb: 330000 },
+        { name: 'Doble Suite',    desc: 'Suite premium con tinaja privada',     bb: 270000, hb: 340000, fb: 350000 },
+      ]
+    }
+  };
+  const fmtCLP = n => '$' + n.toLocaleString('es-CL');
+  function renderSeason(key){
+    const s = priceData[key];
+    document.getElementById('seasonName').textContent = s.name;
+    document.getElementById('seasonMonths').textContent = s.months;
+    const body = document.getElementById('priceBody');
+    body.innerHTML = s.rooms.map(r => `
+      <tr>
+        <td class="room">${r.name}<small>${r.desc}</small></td>
+        <td class="price">${fmtCLP(r.bb)}<small>noche</small></td>
+        <td class="price">${fmtCLP(r.hb)}<small>noche</small></td>
+        <td class="price">${fmtCLP(r.fb)}<small>noche</small></td>
+        <td class="price" style="font-size:14px;color:var(--muted)">+ ${fmtCLP(s.extra.bb)}<small>BB</small></td>
+      </tr>
+    `).join('');
+  }
+  renderSeason('baja');
+  document.querySelectorAll('.season-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.season-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderSeason(btn.dataset.season);
+    });
+  });
+
+  // === Mark current season based on today's date
+  (function(){
+    // 0=Ene ... 11=Dic
+    // Baja:  Mayo(4), Agosto(7), Octubre(9)
+    // Media: Abril(3), Junio(5), Julio(6), Septiembre(8), Noviembre(10)
+    // Alta:  Diciembre(11), Enero(0), Febrero(1), Marzo(2)
+    const map = {
+      0:'alta', 1:'alta', 2:'alta', 3:'media', 4:'baja',
+      5:'media', 6:'media', 7:'baja', 8:'media', 9:'baja',
+      10:'media', 11:'alta'
+    };
+    const monthNames = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+    const seasonLabels = { baja:'Temporada Baja', media:'Temporada Media', alta:'Temporada Alta' };
+    const now = new Date();
+    const current = map[now.getMonth()];
+    // Mark tab as current
+    document.querySelectorAll('.season-tab').forEach(b => {
+      if (b.dataset.season === current) {
+        b.classList.add('is-current');
+        const dot = document.createElement('span');
+        dot.className = 'now-dot';
+        b.prepend(dot);
+      }
+    });
+    // Banner
+    const banner = document.getElementById('currentSeasonBanner');
+    document.getElementById('currentSeasonName').textContent = seasonLabels[current];
+    document.getElementById('currentSeasonMonth').textContent = `${monthNames[now.getMonth()]} ${now.getFullYear()}`;
+    banner.hidden = false;
+  })();
+
+  // === Contact form (mock)
+  document.getElementById('contactForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-submit');
+    const original = btn.innerHTML;
+    btn.innerHTML = 'Enviando…';
+    setTimeout(() => {
+      btn.innerHTML = '✓ Consulta enviada';
+      btn.style.background = '#1F3F1B';
+      setTimeout(() => { btn.innerHTML = original; btn.style.background = ''; e.target.reset(); }, 2200);
+    }, 700);
+  });
+
+  // === Hero carousel (crossfade + ken-burns)
+  (function(){
+    const slides = document.querySelectorAll('#heroBg .hero-slide');
+    const dots   = document.querySelectorAll('#heroDots button');
+    if (!slides.length) return;
+    let i = 0, timer = null;
+    function go(n){
+      i = (n + slides.length) % slides.length;
+      slides.forEach((el, k) => el.classList.toggle('active', k === i));
+      dots.forEach((el, k) => el.classList.toggle('active', k === i));
+    }
+    function start(){ stop(); timer = setInterval(() => go(i+1), 5000); }
+    function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+    dots.forEach(d => d.addEventListener('click', () => { go(parseInt(d.dataset.i,10)); start(); }));
+    const hIo = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? start() : stop()), { threshold: 0.1 });
+    hIo.observe(document.getElementById('heroBg'));
+  })();
+
+  // === Season carousel (manifesto) — slide right-to-left + interactive
+  (function(){
+    const root   = document.getElementById('seasonCarousel');
+    const slides = Array.from(document.querySelectorAll('#seasonCarousel .slides img'));
+    const dots   = document.querySelectorAll('#seasonDots button');
+    const label  = document.getElementById('seasonLabel');
+    const prev   = document.getElementById('seasonPrev');
+    const next   = document.getElementById('seasonNext');
+    if (!slides.length) return;
+    let i = 0, timer = null;
+
+    function go(n, dir){
+      const newIdx = (n + slides.length) % slides.length;
+      if (newIdx === i) return;
+      const direction = dir || (newIdx > i ? 'next' : 'prev');
+      const cur = slides[i];
+      const incoming = slides[newIdx];
+
+      // Place incoming on the opposite side, instant
+      incoming.style.transition = 'none';
+      incoming.classList.remove('active','prev');
+      incoming.style.transform = direction === 'next' ? 'translateX(100%)' : 'translateX(-100%)';
+      // Force reflow so the transform takes effect before re-enabling transition
+      void incoming.offsetWidth;
+      incoming.style.transition = '';
+
+      // Animate: current slides out, incoming slides in
+      requestAnimationFrame(() => {
+        cur.classList.remove('active');
+        cur.classList.add(direction === 'next' ? 'prev' : '');
+        cur.style.transform = direction === 'next' ? 'translateX(-100%)' : 'translateX(100%)';
+        incoming.style.transform = 'translateX(0)';
+        incoming.classList.add('active');
+      });
+
+      i = newIdx;
+      dots.forEach((el, k) => el.classList.toggle('active', k === i));
+      const seasonName = incoming.dataset.season;
+      label.style.opacity = '0'; label.style.transform = 'translateY(4px)';
+      setTimeout(() => {
+        label.textContent = seasonName;
+        label.style.opacity = '1';
+        label.style.transform = 'translateY(0)';
+      }, 300);
+    }
+
+    function start(){ stop(); timer = setInterval(() => go(i+1, 'next'), 3200); }
+    function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+    function reset(){ start(); }
+
+    dots.forEach(d => d.addEventListener('click', () => {
+      const n = parseInt(d.dataset.i, 10);
+      go(n, n > i ? 'next' : 'prev');
+      reset();
+    }));
+    next.addEventListener('click', () => { go(i+1, 'next'); reset(); });
+    prev.addEventListener('click', () => { go(i-1, 'prev'); reset(); });
+
+    // Pause on hover (desktop)
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', start);
+
+    // Keyboard
+    root.tabIndex = 0;
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight'){ go(i+1, 'next'); reset(); }
+      if (e.key === 'ArrowLeft') { go(i-1, 'prev'); reset(); }
+    });
+
+    // Swipe (touch)
+    let touchStart = null;
+    root.addEventListener('touchstart', (e) => { touchStart = e.touches[0].clientX; stop(); }, { passive:true });
+    root.addEventListener('touchend', (e) => {
+      if (touchStart == null) return;
+      const dx = e.changedTouches[0].clientX - touchStart;
+      if (Math.abs(dx) > 40) {
+        if (dx < 0) go(i+1, 'next');
+        else go(i-1, 'prev');
+      }
+      touchStart = null;
+      reset();
+    });
+
+    // Pause when offscreen
+    const cIo = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? start() : stop()), { threshold: 0.2 });
+    cIo.observe(root);
+  })();
+
+  // === Lightbox para la galería
+  (function(){
+    const figs = Array.from(document.querySelectorAll('.gallery figure'));
+    if (!figs.length) return;
+    const lb        = document.getElementById('lightbox');
+    const img       = document.getElementById('lightboxImg');
+    const closeBtn  = document.getElementById('lightboxClose');
+    const prevBtn   = document.getElementById('lightboxPrev');
+    const nextBtn   = document.getElementById('lightboxNext');
+    const counter   = document.getElementById('lightboxCounter');
+    const caption   = document.getElementById('lightboxAlt');
+    const thumbs    = document.getElementById('lightboxThumbs');
+
+    const items = figs.map(f => {
+      const i = f.querySelector('img');
+      return { src: i.src, alt: i.alt };
+    });
+
+    items.forEach((it, k) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.style.backgroundImage = `url('${it.src}')`;
+      b.setAttribute('aria-label', it.alt || `Imagen ${k+1}`);
+      b.addEventListener('click', () => show(k));
+      thumbs.appendChild(b);
+    });
+    const thumbEls = Array.from(thumbs.querySelectorAll('button'));
+
+    let idx = 0;
+    function show(n){
+      idx = (n + items.length) % items.length;
+      const it = items[idx];
+      img.classList.remove('ready');
+      const tmp = new Image();
+      tmp.onload = () => {
+        img.src = it.src;
+        img.alt = it.alt;
+        requestAnimationFrame(() => img.classList.add('ready'));
+      };
+      tmp.src = it.src;
+      counter.textContent = `${idx+1} / ${items.length}`;
+      caption.textContent = it.alt;
+      thumbEls.forEach((t, k) => t.classList.toggle('active', k === idx));
+      const active = thumbEls[idx];
+      if (active) active.scrollIntoView({ inline:'center', block:'nearest', behavior:'smooth' });
+    }
+    function open(n){
+      show(n);
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+    function close(){
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+
+    figs.forEach((f, k) => {
+      f.addEventListener('click', () => open(k));
+    });
+    closeBtn.addEventListener('click', close);
+    prevBtn.addEventListener('click', () => show(idx-1));
+    nextBtn.addEventListener('click', () => show(idx+1));
+    lb.addEventListener('click', (e) => {
+      if (e.target === lb || e.target.classList.contains('lightbox-stage')) close();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') show(idx+1);
+      if (e.key === 'ArrowLeft') show(idx-1);
+    });
+
+    let tx = null;
+    lb.addEventListener('touchstart', (e) => { tx = e.touches[0].clientX; }, { passive:true });
+    lb.addEventListener('touchend', (e) => {
+      if (tx == null) return;
+      const dx = e.changedTouches[0].clientX - tx;
+      if (Math.abs(dx) > 50) { dx < 0 ? show(idx+1) : show(idx-1); }
+      tx = null;
+    });
+  })();
+
+  // === Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('in'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('section, .cabin, .amenity, .price-card').forEach(el => {
+    el.classList.add('reveal'); io.observe(el);
+  });
+</script>
+</body>
+</html>
